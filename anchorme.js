@@ -53,6 +53,7 @@ anchorme.order = function (str,seperator,addattrs) {
         var URLallowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~:/?#[]@!$&'()*+,;=";
         var NAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&'*+-/=?^_`{|}~.";
         var SAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.:";
+        var smCopy = splitedArray[i];
         var sm = splitedArray[i].toLowerCase();
 
         for (var x = 0; x < sm.length; x++) {
@@ -158,16 +159,16 @@ anchorme.order = function (str,seperator,addattrs) {
                     }
                 }
             }
-            var url = Protocol ? Protocol+sm:sm;
+            var url = Protocol ? Protocol+smCopy:smCopy;
             if (isurl) {
                 if (typeof addattrs === "object") {
                     splitedArray[i] = "<a href='"+url+"'";
                     for (var name in addattrs) {
                         splitedArray[i] = splitedArray[i] + " "+name+"='"+addattrs[name]+"'";
                     }
-                    splitedArray[i] = splitedArray[i] + ">"+sm+"</a>";
+                    splitedArray[i] = splitedArray[i] + ">"+smCopy+"</a>";
                 } else {
-                    splitedArray[i] = "<a href='"+url+"'>"+sm+"</a>";   
+                    splitedArray[i] = "<a href='"+url+"'>"+smCopy+"</a>";   
                 }
             }
         }
